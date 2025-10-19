@@ -8,17 +8,39 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    <!-- Your CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>City Safety Map - Riihimäki</h1>
+    <h2>Submit a New Alert</h2>
+<form id="alertForm">
+    <label>Type of Alert:</label><br>
+    <input type="text" id="type" placeholder="e.g. Traffic Accident" required><br><br>
+
+    <label>Description:</label><br>
+    <textarea id="description" placeholder="Describe the alert" required></textarea><br><br>
+
+    <label>Latitude:</label><br>
+    <input type="number" id="lat" step="0.0001" placeholder="60.7389" required><br><br>
+
+    <label>Longitude:</label><br>
+    <input type="number" id="lng" step="0.0001" placeholder="24.7741" required><br><br>
+
+    <button type="submit">Submit Alert</button>
+</form>
+
+    
     <div id="map"></div>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <!-- Your JS -->
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+
+    <!-- Custom JS -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
